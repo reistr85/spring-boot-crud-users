@@ -1,9 +1,9 @@
-package br.com.mgetech.users.service.users;
+package br.com.mgetech.users.services.users;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
-import br.com.mgetech.users.model.User;
-import br.com.mgetech.users.repository.UserRepository;
+import br.com.mgetech.users.entities.User;
+import br.com.mgetech.users.repositories.UserRepository;
 
 @Service
 public class GetAllUsersService {

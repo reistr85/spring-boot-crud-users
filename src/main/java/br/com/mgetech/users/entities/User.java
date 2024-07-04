@@ -1,4 +1,4 @@
-package br.com.mgetech.users.model;
+package br.com.mgetech.users.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
