@@ -1,7 +1,7 @@
 package br.com.mgetech.users.services.users;
 
+import br.com.mgetech.users.dtos.users.GetUserByIdResponseDto;
 import org.springframework.stereotype.Service;
-import br.com.mgetech.users.entities.User;
 import br.com.mgetech.users.repositories.UserRepository;
 
 @Service
@@ -12,7 +12,7 @@ public class GetUserByIdService {
     this.userRepository = userRepository;
   }
 
-  public User execute(Long id) {
-    return this.userRepository.findById(id).orElse(null);
+  public GetUserByIdResponseDto execute(Long id) {
+    return GetUserByIdResponseDto.toDTO(this.userRepository.findById(id).orElseThrow());
   }
 }
