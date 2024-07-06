@@ -1,6 +1,7 @@
 package br.com.mgetech.users.services.users;
 
-import br.com.mgetech.users.dtos.users.GetUserByIdResponseDto;
+import br.com.mgetech.users.dtos.users.GetUserResponseDto;
+import br.com.mgetech.users.exceptions.NotFoundException;
 import org.springframework.stereotype.Service;
 import br.com.mgetech.users.repositories.UserRepository;
 
@@ -12,7 +13,7 @@ public class GetUserByIdService {
     this.userRepository = userRepository;
   }
 
-  public GetUserByIdResponseDto execute(Long id) {
-    return GetUserByIdResponseDto.toDTO(this.userRepository.findById(id).orElseThrow());
+  public GetUserResponseDto execute(Long id) {
+    return GetUserResponseDto.toDTO(this.userRepository.findById(id).orElseThrow(NotFoundException::new));
   }
 }

@@ -2,7 +2,7 @@ package br.com.mgetech.users.controllers.users;
 
 import java.util.List;
 
-import br.com.mgetech.users.dtos.users.GetAllUsersResponseDto;
+import br.com.mgetech.users.dtos.users.GetUserResponseDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import br.com.mgetech.users.services.users.GetAllUsersService;
@@ -18,7 +18,7 @@ public class GetAllUsersController {
 
   @GetMapping
   @ResponseStatus(HttpStatus.OK)
-  public @ResponseBody List<GetAllUsersResponseDto> getAll() {
+  public @ResponseBody List<GetUserResponseDto> handle() {
     return getAllUsersService.execute();
   }
 }

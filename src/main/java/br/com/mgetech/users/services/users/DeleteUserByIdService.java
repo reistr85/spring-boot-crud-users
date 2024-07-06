@@ -1,5 +1,6 @@
 package br.com.mgetech.users.services.users;
 
+import br.com.mgetech.users.exceptions.NotFoundException;
 import org.springframework.stereotype.Service;
 
 import br.com.mgetech.users.entities.User;
@@ -14,7 +15,7 @@ public class DeleteUserByIdService {
   }
 
   public void execute(Long id) {
-    User user = this.userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
+    var user = this.userRepository.findById(id).orElseThrow(NotFoundException::new);
     this.userRepository.delete(user);
   }
 }

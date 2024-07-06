@@ -2,7 +2,7 @@ package br.com.mgetech.users.services.users;
 
 import java.util.List;
 
-import br.com.mgetech.users.dtos.users.GetAllUsersResponseDto;
+import br.com.mgetech.users.dtos.users.GetUserResponseDto;
 import org.springframework.stereotype.Service;
 import br.com.mgetech.users.repositories.UserRepository;
 
@@ -14,7 +14,7 @@ public class GetAllUsersService {
     this.userRepository = userRepository;
   }
 
-  public List<GetAllUsersResponseDto> execute() {
-    return GetAllUsersResponseDto.toDTOs(this.userRepository.findAll());
+  public List<GetUserResponseDto> execute() {
+    return GetUserResponseDto.toDTOs(this.userRepository.findAll());
   }
 }

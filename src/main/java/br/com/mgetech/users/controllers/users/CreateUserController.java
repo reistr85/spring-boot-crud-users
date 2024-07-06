@@ -1,11 +1,9 @@
 package br.com.mgetech.users.controllers.users;
 
+import br.com.mgetech.users.dtos.users.CreateUserRequestDto;
+import br.com.mgetech.users.dtos.users.GetUserResponseDto;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import br.com.mgetech.users.entities.User;
 import br.com.mgetech.users.services.users.CreateUserService;
 
@@ -20,7 +18,7 @@ public class CreateUserController {
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  public User create(@RequestBody User user) {
-    return createUserService.execute(user);
+  public @ResponseBody GetUserResponseDto handle(@RequestBody CreateUserRequestDto createUserRequestDto) {
+    return createUserService.execute(createUserRequestDto);
   }
 }

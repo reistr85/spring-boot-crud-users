@@ -1,9 +1,8 @@
 package br.com.mgetech.users.controllers.users;
 
-import br.com.mgetech.users.dtos.users.GetUserByIdResponseDto;
+import br.com.mgetech.users.dtos.users.GetUserResponseDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import br.com.mgetech.users.entities.User;
 import br.com.mgetech.users.services.users.GetUserByIdService;
 
 @RestController
@@ -17,7 +16,7 @@ public class GetUserByIdController {
 
   @GetMapping("/{id}")
   @ResponseStatus(HttpStatus.OK)
-  public @ResponseBody GetUserByIdResponseDto getById(@PathVariable Long id) {
+  public @ResponseBody GetUserResponseDto handle(@PathVariable Long id) {
     return getByIdUserService.execute(id);
   }
 }
